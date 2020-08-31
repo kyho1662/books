@@ -6,7 +6,6 @@ import javax.persistence.*;
 @Table(name="member")
 public class Member {
 
-
     @Id
     @SequenceGenerator(name="my_entity_seq_gen", sequenceName="GLOBAL_SEQUENCE", initialValue=0, allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.AUTO, generator="my_entity_seq_gen")
