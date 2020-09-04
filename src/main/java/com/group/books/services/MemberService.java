@@ -13,11 +13,15 @@ public class MemberService {
     @Autowired
     private MemberRepository repo;
 
-    public List<Member> getAllUsers() {
+    public List<Member> getAllMembers() {
         return repo.findAll();
     }
 
     public void insertMember(Member member) {
         repo.save(member);
+    }
+
+    public Member getMemberById(int memberId) {
+        return repo.findById(memberId);
     }
 }
