@@ -18,8 +18,6 @@ public class Member {
     @Column(name="id")
     private String loginId;
 
-    // JSON 요청에서 누락시킴
-    @JsonIgnore
     @Column(name="password")
     private String password;
 
@@ -59,15 +57,18 @@ public class Member {
         return loginId;
     }
 
-    @JsonProperty
     public void setLoginId(String loginId) {
         this.loginId = loginId;
     }
 
+    // JSON 요청에서 누락시킴
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
 
+    // JSON 데이터 저장은 허용
+    @JsonProperty
     public void setPassword(String password) {
         this.password = password;
     }

@@ -1,5 +1,5 @@
-const $fragment = document.querySelector('#fragment');
-const $list = document.querySelector('#list');
+const fragment = document.querySelector('#fragment');
+const list = document.querySelector('#list');
 
 let inputData = {
     category : '',
@@ -7,14 +7,12 @@ let inputData = {
     content : ''
 }
 
-const {category, title, content} = inputData;
-
 const onChange = (e) => {
-    if(e.target.name == "category") {
+    if(e.target.name === "category") {
         inputData.category = e.target.value;
-    } else if(e.target.name == "title") {
+    } else if(e.target.name === "title") {
          inputData.title = e.target.value;
-    } else if(e.target.name == "content") {
+    } else if(e.target.name === "content") {
          inputData.content = e.target.value;
     }
 }
@@ -32,10 +30,7 @@ const getSuggestions = async () => {
         const res = await fetch('http://localhost:8080/api/suggestion');
         const result = await res.json();
 
-        console.log(result);
-
-
-        $list.innerHTML = await result.map(sug => {
+        list.innerHTML = await result.map(sug => {
                              return `<li>${sug.category} / ${sug.title} / ${sug.content} / ${sug.creator.name} / ${sug.regdate}</li>`;
                          }).join(' ');
 
@@ -66,10 +61,9 @@ const postSuggestion = async () => {
 }
 
 const render = () => {
+    const {category, title, content} = inputData;
 
-    console.log(inputData);
-
-    $fragment.innerHTML = `
+    fragment.innerHTML = `
      <h>건의사항</h>
     <form class="form" id="suggestion-form">
         <div class="form-group">

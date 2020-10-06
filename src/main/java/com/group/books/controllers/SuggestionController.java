@@ -42,7 +42,7 @@ public class SuggestionController {
 
     // @route   GET api/suggestion
     // @desc    get suggestions
-    // @access  Private
+    // @access  Public
     @GetMapping(value="/api/suggestion")
     public List<Suggestion> suggestions() {
         return suggestionService.getAllSuggestions();
@@ -61,9 +61,9 @@ public class SuggestionController {
     // @desc    delete suggestion
     // @access  Private
     @DeleteMapping(value="/api/suggestion")
-    public String deleteSeggestion(@RequestParam int seggestionId) {
-        suggestionService.deleteSuggestionById(seggestionId);
-        return "suggestion delteted";
+    public String deleteSuggestion(@RequestParam int suggestionId) {
+        suggestionService.deleteSuggestionById(suggestionId);
+        return "suggestion deleted";
     }
 
 }
