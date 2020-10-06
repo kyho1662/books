@@ -1,8 +1,5 @@
 # books
 
-## 테스트
-- localhost:8080/suggestion
-- application.properties 변경 후 실행
 
 ## 구성
 - Entity : DB 테이블과 1:1로 호환
